@@ -2,6 +2,9 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+ //  https://webpack.js.org/configuration/devtool/
+   devtool: 'cheap-eval-source-map',
+ //  devtool: 'cheap-module-source-map', 
   context: path.join(__dirname, 'src'),
   entry: {
     app: './app/app.js',
