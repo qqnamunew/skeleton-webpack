@@ -25,6 +25,19 @@ module.exports = {
     stats: 'errors-only'
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'index.html'),
+      hash: true,
+      chunks: ['app']
+      //excludehunks: []
+    }),
+    
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'index.html'),
+      hash: true,
+      chunks: ['about'],
+      filename: 'about.html'
+    }),
+    
   ]
 };
