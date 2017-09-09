@@ -1,1 +1,2 @@
-alert('Webpack');
+import string from './string';
+alert(string);
