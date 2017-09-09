@@ -1,2 +1,2 @@
-const bar = () => 'baz';
-console.log(foo);
+import string from './string';
+alert(string);
