@@ -1,6 +1,7 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+const webpack = require('webpack')
 
 module.exports = {
  //  https://webpack.js.org/configuration/devtool/
@@ -8,8 +9,8 @@ module.exports = {
  //  devtool: 'cheap-module-source-map', 
   context: path.join(__dirname, 'src'),
   entry: {
-    app: './app/app.js',
-    about: './about/about.js',
+    home: './app/home.js',
+    post: './app/post.js',
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -32,15 +33,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
       hash: true,
-      chunks: ['commons', 'app']
+      chunks: ['commons', 'home']
       //excludehunks: []
     }),
     
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
       hash: true,
-      chunks: ['commons', 'about'],
-      filename: 'about.html' 
+      chunks: ['commons', 'post'],
+      filename: 'post.html' 
     }),
     
     new CommonsChunkPlugin({

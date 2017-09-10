@@ -5,20 +5,19 @@ var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: {
-    app: './app/app.js',
-    about: './about/about.js',
+    home: './app/home.js',
+    post: './app/post.js',
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-    publicPath: '/'
+    filename: '[name].bundle.js'
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include:  path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src')
       }
     ]
   },
@@ -26,20 +25,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
       hash: true,
-      chunks: ['commons', 'app']
+      chunks: ['commons', 'home']
       //excludehunks: []
     }),
-    
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
       hash: true,
-      chunks: ['commons', 'about'],
-      filename: 'about.html' 
+      chunks: ['commons', 'post'],
+      filename: 'post.html'
     }),
-    
     new CommonsChunkPlugin({
       name: 'commons'
     })
-    
+
   ]
 };
