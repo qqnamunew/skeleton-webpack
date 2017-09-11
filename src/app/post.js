@@ -1,8 +1,12 @@
 import $ from 'jquery';
-import footer from './common/footer';
-import header from './common/header';
-import 'styles/post.scss';
 
-$('body').append(header);
-$('body').append('Post');
-$('body').append(footer);
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+
+// loads the Icon plugin
+UIkit.use(Icons);
+
+// components can be called from the imported UIkit reference
+UIkit.notification('Hello Post.');
+
+import 'styles/post.scss';
